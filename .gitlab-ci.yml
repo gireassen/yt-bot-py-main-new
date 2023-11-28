@@ -1,0 +1,24 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  VER_IMAGE: "10.166.1.131:5000/yt_bot_py:${CI_COMMIT_TAG}"
+#  LATEST_IMAGE: "10.166.1.131:5000/yt_bot_py:latest"
+
+build-job:
+  stage: build
+  only:
+    - tags
+  script:
+    - echo "Building the project..."
+    - docker build . -t $VER_IMAGE
+
+deploy-job:
+  stage: deploy
+  only:
+    - tags
+  script:
+    - echo "Deploying application..."
+    - docker push $VER_IMAGE
+#    - docker push $LATEST_IMAGE

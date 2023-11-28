@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+exmpl_json.txt
+exmpl_json.json
+__pycache__/
+__pycache__/*
+*.pyc
+conf/time.txt
+nckp.py
+conf/config.json
+asdd.py
